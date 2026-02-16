@@ -14,11 +14,11 @@ class ToolContract(Base):
 
     # Foreign key to the associated ToolConcept
     concept_id = Column(
-        UUID(as_uuid=True), ForeignKey("tool_concept.id"), nullable=False
+        UUID(as_uuid=True), ForeignKey("tool_concept.id"), nullable=True
     )
 
     # Version string (semantic versioning recommended) of the contract
-    version = Column(String, nullable=False)
+    contract_version = Column(String, nullable=False)
 
     # Description aimed at humans and LLMs for semantic matching
     description = Column(Text)
@@ -31,8 +31,7 @@ class ToolContract(Base):
 
     # Relationships
     concept = relationship("ToolConcept", back_populates="contracts")
-    implementations = relationship(
-        "ToolImplementation", back_populates="contract")
+    implementations = relationship("ToolImplementation", back_populates="contract")
 
     # Relationships to normalized inputs and outputs
     inputs = relationship(

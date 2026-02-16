@@ -19,8 +19,11 @@ class ToolInput(Base):
     # Name of the input (e.g., "training_data")
     name = Column(String, nullable=False)
 
+    # Semantic function of the input (e.g., "data", "parameter", "config", "predictor")
+    role = Column(String)
+
     # Modality kind (e.g., "tabular", "image", "model") describing general data type
-    modality_kind = Column(String, nullable=False)
+    modality_kind = Column(String)
 
     # Modality structure (optional, e.g., "rectangular", "3D array")
     modality_structure = Column(String)
