@@ -66,7 +66,7 @@ erDiagram
     }
     
     %% Relationships
-    TOOL_IMPLEMENTATION ||--|| ARTEFACT : links_to
+    TOOL_IMPLEMENTATION ||--|| TOOL_ARTEFACT : links_to
     TOOL_IMPLEMENTATION ||--|| TOOL_CONTRACT : implements
     TOOL_IMPLEMENTATION ||--|| TOOL_CONCEPT : implements
     TOOL_CONTRACT ||--|| TOOL_CONCEPT : describes
