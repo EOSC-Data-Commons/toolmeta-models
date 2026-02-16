@@ -24,7 +24,7 @@ erDiagram
     TOOL_CONTRACT {
         UUID id PK
         UUID concept_id FK
-        String version
+        String contract_version
         Text description
         Vector embedding
     }
@@ -41,6 +41,7 @@ erDiagram
         UUID id PK
         UUID contract_id FK
         String name
+        String role
         String modality_kind
         String modality_structure
         String[] encoding_formats
