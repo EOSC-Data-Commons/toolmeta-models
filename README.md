@@ -13,7 +13,7 @@ erDiagram
     }
     
     %% Artefact table
-    ARTEFACT {
+   TOOL_ARTEFACT {
         UUID id PK
         String archetype
         Text location
