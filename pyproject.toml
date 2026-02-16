@@ -1,0 +1,12 @@
+[project]
+name = "toolmeta_models"
+version = "0.1.0-dev"
+description = "Shared models for scientific tool metadata and contracts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "SQLAlchemy>=2.0",
+    "pgvector",
+    "pydantic>=2.0"
+]
+
