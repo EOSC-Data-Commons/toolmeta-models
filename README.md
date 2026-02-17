@@ -9,7 +9,6 @@ erDiagram
     TOOL_IMPLEMENTATION {
         UUID artefact_id PK
         UUID contract_id PK
-        UUID concept_id FK
     }
     
     %% Artefact table
@@ -23,17 +22,9 @@ erDiagram
     %% Tool contract table
     TOOL_CONTRACT {
         UUID id PK
-        UUID concept_id FK
         String contract_version
         Text description
         Vector embedding
-    }
-    
-    %% Tool concept table
-    TOOL_CONCEPT {
-        UUID id PK
-        String name
-        Text description
     }
     
     %% Inputs and outputs
@@ -69,8 +60,6 @@ erDiagram
     %% Relationships
     TOOL_IMPLEMENTATION ||--|| TOOL_ARTEFACT : links_to
     TOOL_IMPLEMENTATION ||--|| TOOL_CONTRACT : implements
-    TOOL_IMPLEMENTATION ||--|| TOOL_CONCEPT : implements
-    TOOL_CONTRACT ||--|| TOOL_CONCEPT : describes
     TOOL_CONTRACT ||--o{ TOOL_INPUT : has_inputs
     TOOL_CONTRACT ||--o{ TOOL_OUTPUT : has_outputs
     TOOL_INPUT ||--o{ TOOL_VARIABLE : defines_variables

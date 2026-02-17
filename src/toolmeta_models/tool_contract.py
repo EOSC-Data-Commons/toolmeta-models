@@ -12,11 +12,6 @@ class ToolContract(Base):
     # Primary key: unique identifier for the contract
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
-    # Foreign key to the associated ToolConcept
-    concept_id = Column(
-        UUID(as_uuid=True), ForeignKey("tool_concept.id"), nullable=True
-    )
-
     # Version string (semantic versioning recommended) of the contract
     contract_version = Column(String, nullable=False)
 
@@ -30,8 +25,8 @@ class ToolContract(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationships
-    concept = relationship("ToolConcept", back_populates="contracts")
-    implementations = relationship("ToolImplementation", back_populates="contract")
+    implementations = relationship(
+        "ToolImplementation", back_populates="contract")
 
     # Relationships to normalized inputs and outputs
     inputs = relationship(

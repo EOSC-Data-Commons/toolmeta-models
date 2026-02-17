@@ -17,12 +17,6 @@ class ToolImplementation(Base):
         UUID(as_uuid=True), ForeignKey("tool_contract.id"), primary_key=True
     )
 
-    # Foreign key to the conceptual tool this implementation belongs to
-    concept_id = Column(
-        UUID(as_uuid=True), ForeignKey("tool_concept.id"), nullable=False
-    )
-
     # Relationships back to parent objects
     artefact = relationship("ToolArtefact", back_populates="implementations")
     contract = relationship("ToolContract", back_populates="implementations")
-    concept = relationship("ToolConcept", back_populates="implementations")
