@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, Text, ForeignKey
+from sqlalchemy import Column, String, Text, ForeignKey, ARRAY
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from toolmeta_models.base import Base
@@ -26,7 +26,7 @@ class ToolOutput(Base):
     modality = Column(String)
 
     # Encoding format (e.g., "pickle", "csv")
-    encoding_format = Column(String)
+    encoding_formats = Column(ARRAY(String))
 
     # Schema optionally describing the structure of the output.
     schema = Column(Text)
