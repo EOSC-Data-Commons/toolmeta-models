@@ -17,7 +17,7 @@ class ToolInput(Base):
     )
 
     # Name of the input (e.g., "training_data")
-    name = Column(String, nullable=False)
+    name = Column(String)
 
     # Semantic function of the input (e.g., "data", "parameter", "config", "predictor")
     role = Column(String)
