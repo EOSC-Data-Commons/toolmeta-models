@@ -11,7 +11,7 @@ class ToolEmbedding(Base):
     used for semantic search, matching, or AI-based reasoning.
     """
 
-    __tablename__ = "embedding"
+    __tablename__ = "tool_embedding"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
 
