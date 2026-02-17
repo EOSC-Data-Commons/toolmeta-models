@@ -11,6 +11,10 @@ class ToolArtifact(Base):
     # Primary key: unique identifier for this artefact
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
+    name = Column(String, nullable=False)
+
+    version = Column(String, nullable=False)
+
     # Archetype: type of execution artefact (e.g., galaxy_workflow, docker, notebook, service)
     archetype = Column(String, nullable=False)
 

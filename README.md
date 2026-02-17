@@ -14,6 +14,8 @@ erDiagram
     %% Artefact table
    TOOL_ARTIFACT {
         UUID id PK
+        String name
+        String version
         String archetype
         Text location
         Text metadata
