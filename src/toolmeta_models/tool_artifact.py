@@ -8,17 +8,17 @@ from toolmeta_models.base import Base
 class ToolArtifact(Base):
     __tablename__ = "tool_artifact"
 
-    # Primary key: unique identifier for this artefact
+    # Primary key: unique identifier for this artifact
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
     name = Column(String, nullable=False)
 
     version = Column(String, nullable=False)
 
-    # Archetype: type of execution artefact (e.g., galaxy_workflow, docker, notebook, service)
+    # Archetype: type of execution artifact (e.g., galaxy_workflow, docker, notebook, service)
     archetype = Column(String, nullable=False)
 
-    # Location or reference to the artefact (URI, registry, file path)
+    # Location or reference to the artifact (URI, registry, file path)
     location = Column(String, nullable=False)
 
     # Metadata for extra information, e.g., execution hints, container info
@@ -30,6 +30,5 @@ class ToolArtifact(Base):
     # Metadata version for compatibility checks
     metadata_version = Column(String)
 
-    # Relationship to link artefact to contracts
-    implementations = relationship(
-        "ToolImplementation", back_populates="artifact")
+    # Relationship to link artifact to contracts
+    implementations = relationship("ToolImplementation", back_populates="artifact")
