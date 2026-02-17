@@ -1,9 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy.ext.declarative import declarative_base
 from pgvector.sqlalchemy import Vector
-
-Base = declarative_base()
+from toolmeta_models.base import Base
 
 
 class ToolEmbedding(Base):
