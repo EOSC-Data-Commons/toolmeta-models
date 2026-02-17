@@ -36,7 +36,7 @@ class ToolEmbedding(Base):
     content_hash = Column(String, nullable=True)
 
     # Additional metadata about the embedding (e.g., prompt, token count)
-    metadata = Column(JSONB, nullable=True)
+    emb_metadata = Column(JSONB, nullable=True)
 
     # Timestamp of when the embedding was created
     created_at = Column(
