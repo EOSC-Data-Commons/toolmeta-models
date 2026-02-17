@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, ARRAY, ForeignKey
+from sqlalchemy import Column, String, Text, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from toolmeta_models.base import Base
@@ -17,16 +17,25 @@ class ToolOutput(Base):
     )
 
     # Output name (e.g., "model")
-    name = Column(String, nullable=False)
+    name = Column(String)
+
+    # Description for LLM consumption, explaining the purpose and expected content of this output
+    description = Column(Text)
 
     # Modality kind (e.g., "model", "tabular", "image")
-    modality_kind = Column(String, nullable=False)
+    modality = Column(String)
 
     # Encoding format (e.g., "pickle", "csv")
     encoding_format = Column(String)
 
-    # Guarantees or postconditions (e.g., ["trained_linear_model"])
-    guarantees = Column(ARRAY(String))
+    # Schema optionally describing the structure of the output.
+    schema = Column(Text)
+
+    # Schema version for compatibility checks
+    schema_version = Column(String)
+
+    # Schema type (e.g., "json_schema", "avro", "custom") to indicate how to interpret the schema field
+    schema_type = Column(String)
 
     # Relationship back to parent contract
     contract = relationship("ToolContract", back_populates="outputs")

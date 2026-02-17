@@ -1,8 +1,7 @@
 import uuid
-from sqlalchemy import Column, String, Text, ForeignKey, DateTime, func
+from sqlalchemy import Column, String, Text, DateTime, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from pgvector.sqlalchemy import Vector
 from toolmeta_models.base import Base
 
 
@@ -25,8 +24,7 @@ class ToolContract(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     # Relationships
-    implementations = relationship(
-        "ToolImplementation", back_populates="contract")
+    implementations = relationship("ToolImplementation", back_populates="contract")
 
     # Relationships to normalized inputs and outputs
     inputs = relationship(

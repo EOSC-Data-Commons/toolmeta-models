@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, ForeignKey, ARRAY
+from sqlalchemy import Column, String, Text, ForeignKey, ARRAY
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from toolmeta_models.base import Base
@@ -32,7 +32,7 @@ class ToolInput(Base):
     encoding_formats = Column(ARRAY(String))
 
     # Schema optionally describing the expected structure of the input (e.g., JSON schema, column names/types) JSONB
-    schema = Column(String)
+    schema = Column(Text)
 
     # Schema version for compatibility checks
     schema_version = Column(String)

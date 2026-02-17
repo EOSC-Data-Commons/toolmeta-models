@@ -15,10 +15,10 @@ class ToolArtifact(Base):
     archetype = Column(String, nullable=False)
 
     # Location or reference to the artefact (URI, registry, file path)
-    location = Column(Text, nullable=False)
+    location = Column(String, nullable=False)
 
     # Metadata for extra information, e.g., execution hints, container info
-    metadata = Column(String)
+    metadata = Column(Text)
 
     # Metadata type to indicate how to interpret the metadata field
     metadata_type = Column(String)
@@ -27,5 +27,4 @@ class ToolArtifact(Base):
     metadata_version = Column(String)
 
     # Relationship to link artefact to contracts
-    implementations = relationship(
-        "ToolImplementation", back_populates="artifact")
+    implementations = relationship("ToolImplementation", back_populates="artifact")

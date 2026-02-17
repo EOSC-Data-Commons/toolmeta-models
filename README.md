@@ -12,7 +12,7 @@ erDiagram
     }
     
     %% Artefact table
-   TOOL_ARTEFACT {
+   TOOL_ARTIFACT {
         UUID id PK
         String archetype
         Text location
@@ -60,10 +60,13 @@ erDiagram
         Text Description
         String modality
         String encoding_format
+        Text schema
+        String schema_type
+        String schema_version
     }
     
     %% Relationships
-    TOOL_IMPLEMENTATION ||--|| TOOL_ARTEFACT : links_to
+    TOOL_IMPLEMENTATION ||--|| TOOL_ARTIFACT : links_to
     TOOL_IMPLEMENTATION ||--|| TOOL_CONTRACT : implements
     TOOL_CONTRACT ||--o{ TOOL_EMBEDDING : has_embeddings
     TOOL_INPUT ||--o{ TOOL_EMBEDDING : has_embeddings
