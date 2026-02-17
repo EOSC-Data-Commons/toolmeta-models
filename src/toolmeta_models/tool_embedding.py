@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime, func
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.ext.declarative import declarative_base
-import sqlalchemy_utils
+from pgvector.sqlalchemy import Vector
 
 Base = declarative_base()
 
@@ -30,7 +30,7 @@ class ToolEmbedding(Base):
     embedding_type = Column(String, nullable=True)
 
     # The actual vector; using PostgreSQL pgvector extension
-    vector = Column(sqlalchemy_utils.types.vector.Vector(1536), nullable=False)
+    vector = Column(Vector(1536), nullable=False)
 
     # Optional hash of the source content used to generate this embedding
     content_hash = Column(String, nullable=True)
