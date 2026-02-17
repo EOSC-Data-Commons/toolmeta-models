@@ -7,6 +7,7 @@ Database models for the tools registry
 erDiagram
     %% Root table
     TOOL_IMPLEMENTATION {
+        Integer id PK
         UUID artifact_id PK
         UUID contract_id PK
     }
