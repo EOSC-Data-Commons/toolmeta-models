@@ -19,7 +19,7 @@ erDiagram
         String version
         String archetype
         Text location
-        Text metadata
+        Text raw_metadata
         String metadata_type
         String metadata_version
     }
