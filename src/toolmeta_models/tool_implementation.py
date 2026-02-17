@@ -9,7 +9,7 @@ class ToolImplementation(Base):
 
     # Foreign key to artefact implementing the tool
     artefact_id = Column(
-        UUID(as_uuid=True), ForeignKey("tool_artefact.id"), primary_key=True
+        UUID(as_uuid=True), ForeignKey("tool_artifact.id"), primary_key=True
     )
 
     # Foreign key to tool contract implemented
@@ -18,5 +18,5 @@ class ToolImplementation(Base):
     )
 
     # Relationships back to parent objects
-    artefact = relationship("ToolArtefact", back_populates="implementations")
+    artefact = relationship("ToolArtifact", back_populates="implementations")
     contract = relationship("ToolContract", back_populates="implementations")

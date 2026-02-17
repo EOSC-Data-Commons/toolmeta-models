@@ -18,11 +18,11 @@ class ToolContract(Base):
     # Description aimed at humans and LLMs for semantic matching
     description = Column(Text)
 
-    # Embedding vector for AI similarity search (e.g., OpenAI embeddings)
-    embedding = Column(Vector(768))
-
     # Timestamp when the contract was created
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Timestamp when the contract was last updated
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     # Relationships
     implementations = relationship(

@@ -16,7 +16,9 @@ erDiagram
         UUID id PK
         String archetype
         Text location
-        JSON metadata
+        Text metadata
+        String metadata_type
+        String metadata_version
     }
     
     %% Tool contract table
@@ -24,7 +26,17 @@ erDiagram
         UUID id PK
         String contract_version
         Text description
-        Vector embedding
+    }
+
+    TOOL_EMBEDDING {
+        UUID id PK
+        String entity_type
+        UUID entity_id 
+        String model_name
+        String embedding_type
+        Vector vector
+        String content_hash
+        JSON metadata
     }
     
     %% Inputs and outputs
@@ -33,35 +45,30 @@ erDiagram
         UUID contract_id FK
         String name
         String role
-        String modality_kind
-        String modality_structure
+        String modality
         String[] encoding_formats
-        String[] constraints
-        String[] assumptions
-    }
-    
-    TOOL_VARIABLE {
-        UUID id PK
-        UUID input_id FK
-        String name
-        String datatype
-        String[] shape
+        Text description
+        Text schema
+        String schema_type
+        String schema_version
     }
     
     TOOL_OUTPUT {
         UUID id PK
         UUID contract_id FK
         String name
-        String modality_kind
+        Text Description
+        String modality
         String encoding_format
-        String[] guarantees
     }
     
     %% Relationships
     TOOL_IMPLEMENTATION ||--|| TOOL_ARTEFACT : links_to
     TOOL_IMPLEMENTATION ||--|| TOOL_CONTRACT : implements
+    TOOL_CONTRACT ||--o{ TOOL_EMBEDDING : has_embeddings
+    TOOL_INPUT ||--o{ TOOL_EMBEDDING : has_embeddings
+    TOOL_OUTPUT ||--o{ TOOL_EMBEDDING : has_embeddings
     TOOL_CONTRACT ||--o{ TOOL_INPUT : has_inputs
     TOOL_CONTRACT ||--o{ TOOL_OUTPUT : has_outputs
-    TOOL_INPUT ||--o{ TOOL_VARIABLE : defines_variables
 ```
 

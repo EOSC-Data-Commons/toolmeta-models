@@ -1,12 +1,12 @@
 import uuid
-from sqlalchemy import Column, String, Text, JSON
+from sqlalchemy import Column, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from toolmeta_models.base import Base
 
 
-class ToolArtefact(Base):
-    __tablename__ = "tool_artefact"
+class ToolArtifact(Base):
+    __tablename__ = "tool_artifact"
 
     # Primary key: unique identifier for this artefact
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
@@ -18,7 +18,14 @@ class ToolArtefact(Base):
     location = Column(Text, nullable=False)
 
     # Metadata for extra information, e.g., execution hints, container info
-    metadata = Column(JSON)
+    metadata = Column(String)
+
+    # Metadata type to indicate how to interpret the metadata field
+    metadata_type = Column(String)
+
+    # Metadata version for compatibility checks
+    metadata_version = Column(String)
 
     # Relationship to link artefact to contracts
-    implementations = relationship("ToolImplementation", back_populates="artefact")
+    implementations = relationship(
+        "ToolImplementation", back_populates="artifact")

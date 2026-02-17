@@ -22,25 +22,23 @@ class ToolInput(Base):
     # Semantic function of the input (e.g., "data", "parameter", "config", "predictor")
     role = Column(String)
 
-    # Modality kind (e.g., "tabular", "image", "model") describing general data type
-    modality_kind = Column(String)
+    # Description for LLM consumption, explaining the purpose and expected content of this input
+    description = Column(String)
 
-    # Modality structure (optional, e.g., "rectangular", "3D array")
-    modality_structure = Column(String)
+    # Modality kind (e.g., "tabular", "image", "model") describing general data type
+    modality = Column(String)
 
     # Accepted encodings/formats (e.g., ["csv", "parquet"])
     encoding_formats = Column(ARRAY(String))
 
-    # Structural constraints expressed as strings (e.g., ["X.rows == y.rows", "n >= p+1"])
-    constraints = Column(ARRAY(String))
+    # Schema optionally describing the expected structure of the input (e.g., JSON schema, column names/types) JSONB
+    schema = Column(String)
 
-    # Assumptions for validity (e.g., ["linearity", "iid_samples"])
-    assumptions = Column(ARRAY(String))
+    # Schema version for compatibility checks
+    schema_version = Column(String)
+
+    # Schema type (e.g., "json_schema", "avro", "custom") to indicate how to interpret the schema field
+    schema_type = Column(String)
 
     # Relationship back to parent contract
     contract = relationship("ToolContract", back_populates="inputs")
-
-    # Relationship to variables defined on this input
-    variables = relationship(
-        "ToolVariable", back_populates="input", cascade="all, delete-orphan"
-    )
