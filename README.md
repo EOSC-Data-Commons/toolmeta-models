@@ -57,7 +57,7 @@ erDiagram
         UUID id PK
         UUID contract_id FK
         String name
-        Text Description
+        Text description
         String modality
         String encoding_format
         Text schema
