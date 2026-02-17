@@ -3,7 +3,7 @@ from toolmeta_models.tool_contract import ToolContract
 from toolmeta_models.tool_input import ToolInput
 from toolmeta_models.tool_output import ToolOutput
 from toolmeta_models.tool_embedding import ToolEmbedding
-from toolmeta_models.tool_artefact import ToolArtefact
+from toolmeta_models.tool_artifact import ToolArtifact
 from toolmeta_models.tool_implementation import ToolImplementation
 
 __all__ = [
@@ -12,6 +12,6 @@ __all__ = [
     "ToolInput",
     "ToolOutput",
     "ToolEmbedding",
-    "ToolArtefact",
+    "ToolArtifact",
     "ToolImplementation",
 ]

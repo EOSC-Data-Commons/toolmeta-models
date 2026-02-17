@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey
+from sqlalchemy import Column, ForeignKey, Integer
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from toolmeta_models.base import Base
@@ -6,6 +6,8 @@ from toolmeta_models.base import Base
 
 class ToolImplementation(Base):
     __tablename__ = "tool_implementation"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
 
     # Foreign key to artefact implementing the tool
     artefact_id = Column(
