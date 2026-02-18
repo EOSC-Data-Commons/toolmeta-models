@@ -49,8 +49,8 @@ erDiagram
         String name
         String role
         String modality
-        String input_type
-        String primitive_type
+        String input_kind
+        String type
         String[] encoding_formats
         Text description
         Text schema
@@ -63,6 +63,7 @@ erDiagram
         UUID contract_id FK
         String name
         Text description
+        String type
         String modality
         String encoding_format
         Text schema

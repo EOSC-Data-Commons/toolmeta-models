@@ -28,7 +28,7 @@ class ToolInput(Base):
 
     # Primitive datatype (only meaningful if input_kind = "parameter")
     # integer, float, boolean, string
-    primitive_type = Column(String)
+    type = Column(String)
 
     # Description for LLM consumption, explaining the purpose and expected content of this input
     description = Column(String)

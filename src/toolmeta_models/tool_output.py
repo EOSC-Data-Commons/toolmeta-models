@@ -25,6 +25,9 @@ class ToolOutput(Base):
     # Modality kind (e.g., "model", "tabular", "image")
     modality = Column(String)
 
+    # Datatype (only meaningful for parameter outputs, e.g., "integer", "float", "boolean", "string", "data")
+    type = Column(String)
+
     # Encoding format (e.g., "pickle", "csv")
     encoding_formats = Column(ARRAY(String))
 
