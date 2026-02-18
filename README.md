@@ -49,6 +49,8 @@ erDiagram
         String name
         String role
         String modality
+        String input_type
+        String primitive_type
         String[] encoding_formats
         Text description
         Text schema

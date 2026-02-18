@@ -22,6 +22,14 @@ class ToolInput(Base):
     # Semantic function of the input (e.g., "data", "parameter", "config", "predictor")
     role = Column(String)
 
+    # Distinguishes between dataset input and parameter input
+    # Allowed values: "data", "parameter"
+    input_kind = Column(String)
+
+    # Primitive datatype (only meaningful if input_kind = "parameter")
+    # integer, float, boolean, string
+    primitive_type = Column(String)
+
     # Description for LLM consumption, explaining the purpose and expected content of this input
     description = Column(String)
 
