@@ -72,8 +72,6 @@ erDiagram
     TOOL_IMPLEMENTATION ||--|| TOOL_ARTIFACT : links_to
     TOOL_IMPLEMENTATION ||--|| TOOL_CONTRACT : implements
     TOOL_CONTRACT ||--o{ TOOL_EMBEDDING : has_embeddings
-    TOOL_INPUT ||--o{ TOOL_EMBEDDING : has_embeddings
-    TOOL_OUTPUT ||--o{ TOOL_EMBEDDING : has_embeddings
     TOOL_CONTRACT ||--o{ TOOL_INPUT : has_inputs
     TOOL_CONTRACT ||--o{ TOOL_OUTPUT : has_outputs
 ```
