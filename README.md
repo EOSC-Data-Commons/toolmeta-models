@@ -65,7 +65,7 @@ erDiagram
         Text description
         String type
         String modality
-        String encoding_format
+        String[] encoding_formats
         Text schema
         String schema_type
         String schema_version
