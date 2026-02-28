@@ -1,6 +1,6 @@
 import uuid
-from sqlalchemy import Column, String, Text, ARRAY, DateTime, func
-from sqlalchemy.dialects.postgresql import UUID, JSONB
+from sqlalchemy import Column, String, Text, ARRAY, DateTime, func, Integer
+from sqlalchemy.dialects.postgresql import JSONB
 from toolmeta_models.base import Base
 
 
@@ -8,7 +8,10 @@ class ToolGeneric(Base):
     __tablename__ = "tool_generic"
 
     # Primary key: unique identifier for this artifact
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    # id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+
+    # Using an auto-incrementing integer as the primary key for simplicity
+    id = Column(Integer, primary_key=True, autoincrement=True)
 
     uri = Column(String, nullable=False, unique=True)
 
