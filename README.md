@@ -4,7 +4,7 @@ Database models for the tools registry.
 
 ## Entity relationship diagram
 
-```mermain
+```mermaid
 erDiagram
   TOOL_GENERIC {
     Integer id PK
