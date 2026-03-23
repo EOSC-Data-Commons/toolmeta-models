@@ -34,6 +34,12 @@ class ToolGeneric(Base):
     # Output file formats
     output_file_formats = Column(ARRAY(String))
 
+    # Input file descriptions
+    input_file_descriptions = Column(ARRAY(String))
+
+    # Output file descriptions
+    output_file_descriptions = Column(ARRAY(String))
+
     # Metadata for extra information, e.g., execution hints, container info
     raw_metadata = Column(JSONB)
 
