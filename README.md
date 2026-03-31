@@ -16,6 +16,11 @@ erDiagram
     String location
     ARRAY(String) input_file_formats
     ARRAY(String) output_file_formats
+    ARRAY(String) input_file_descriptions
+    ARRAY(String) output_file_descriptions
+    String license
+    ARRAY(String) tags
+    ARRAY(String) keywords
     JSONB raw_metadata
     JSONB metadata_schema
     String metadata_type
