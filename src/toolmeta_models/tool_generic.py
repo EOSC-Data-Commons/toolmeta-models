@@ -40,6 +40,15 @@ class ToolGeneric(Base):
     # Output file descriptions
     output_file_descriptions = Column(ARRAY(String))
 
+    # License information
+    license = Column(String)
+
+    # Keywords list for searchability
+    keywords = Column(ARRAY(String))
+
+    # Tag list for categorization
+    tags = Column(ARRAY(String))
+
     # Metadata for extra information, e.g., execution hints, container info
     raw_metadata = Column(JSONB)
 
