@@ -23,7 +23,7 @@ class ToolGeneric(Base):
     description = Column(Text)
 
     # Archetype: type of execution artifact (e.g., galaxy_workflow, docker, notebook, service)
-    archetype = Column(String, nullable=False)
+    types = Column(ARRAY(String), nullable=False)
 
     # Location or reference to the artifact (URI, registry, file path)
     location = Column(String, nullable=False)
@@ -39,6 +39,21 @@ class ToolGeneric(Base):
 
     # Output file descriptions
     output_file_descriptions = Column(ARRAY(String))
+
+    # Input slots for file inputs with schema:
+    # {
+    #     "version": String,  # Version of the input slot schema
+    #     "slots": [
+    #         {
+    #             "name": String,  # Name of the input slot
+    #             "description": String,  # Description of the input slot
+    #             "file_formats": [String],  # List of accepted file formats for this slot
+    #             "required": Boolean  # Whether this input slot is required or optional
+    #         },
+    #         ...
+    #     ]
+    # }
+    input_slots = Column(JSONB)
 
     # License information
     license = Column(String)

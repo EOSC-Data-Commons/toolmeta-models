@@ -12,12 +12,13 @@ erDiagram
     String name
     String version
     Text description
-    String archetype
+    ARRAY(String) types
     String location
     ARRAY(String) input_file_formats
     ARRAY(String) output_file_formats
     ARRAY(String) input_file_descriptions
     ARRAY(String) output_file_descriptions
+    JSONB input_slots
     String license
     ARRAY(String) tags
     ARRAY(String) keywords
