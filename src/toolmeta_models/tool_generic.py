@@ -64,6 +64,9 @@ class ToolGeneric(Base):
     # Tag list for categorization
     tags = Column(ARRAY(String))
 
+    # Tool definition in raw format (e.g., CWL, WDL, Dockerfile, Jupyter notebook content)
+    raw_definition = Column(JSONB)
+
     # Metadata for extra information, e.g., execution hints, container info
     raw_metadata = Column(JSONB)
 

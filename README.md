@@ -22,6 +22,7 @@ erDiagram
     String license
     ARRAY(String) tags
     ARRAY(String) keywords
+    JSONB raw_definition
     JSONB raw_metadata
     JSONB metadata_schema
     String metadata_type
