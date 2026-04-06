@@ -70,7 +70,7 @@ class ToolGeneric(Base):
     #         ...
     #     ]
     # }
-    ouput_slots = Column(JSONB)
+    output_slots = Column(JSONB)
 
     # License information
     license = Column(String)
