@@ -45,15 +45,32 @@ class ToolGeneric(Base):
     #     "version": String,  # Version of the input slot schema
     #     "slots": [
     #         {
+    #             "id": Integer,  # Unique identifier for the input slot
     #             "name": String,  # Name of the input slot
     #             "description": String,  # Description of the input slot
+    #             "type": String,  # Type of input (e.g., file, directory, string, number)
     #             "file_formats": [String],  # List of accepted file formats for this slot
-    #             "required": Boolean  # Whether this input slot is required or optional
     #         },
     #         ...
     #     ]
     # }
     input_slots = Column(JSONB)
+    
+    # Output slots for file outputs with schema:
+    # {
+    #     "version": String,  # Version of the ouput slot schema
+    #     "slots": [
+    #         {
+    #             "id": Integer,  # Unique identifier for the output slot
+    #             "name": String,  # Name of the output slot
+    #             "description": String,  # Description of the ouput slot
+    #             "type": String,  # Type of output (e.g., file, directory, string, number)
+    #             "file_formats": [String],  # List of accepted file formats for this slot
+    #         },
+    #         ...
+    #     ]
+    # }
+    ouput_slots = Column(JSONB)
 
     # License information
     license = Column(String)
