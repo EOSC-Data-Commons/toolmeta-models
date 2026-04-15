@@ -1,5 +1,4 @@
 VERSION = $(shell grep '^version' pyproject.toml | head -1 | cut -d '"' -f2)
-
 version:
 	@echo "Current version: v$(VERSION)"
 
@@ -7,7 +6,7 @@ bump:
 	@echo "Bumping version from v$(VERSION) to v$(shell uv version --bump patch --dry-run)"
 	uv version --bump patch
 	uv lock
-	git commit -am "Bump version to v$(VERSION)"
+	git commit -am "Bump version to v"$$(grep '^version' pyproject.toml | head -1 | cut -d '"' -f2)
 	git push
 
 git-tag:
