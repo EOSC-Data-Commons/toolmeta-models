@@ -1,11 +1,24 @@
 import uuid
-from sqlalchemy import Column, String, Text, ARRAY, DateTime, func, Integer
+from sqlalchemy import Column, String, Text, ARRAY, DateTime, func, Integer, Index
 from sqlalchemy.dialects.postgresql import JSONB
 from toolmeta_models.base import Base
 
 
 class ToolGeneric(Base):
     __tablename__ = "tool_generic"
+
+    __table_args__ = (
+        Index(
+            "idx_tool_generic_input_file_formats",
+            "input_file_formats",
+            postgresql_using="gin"
+        ),
+        Index(
+            "idx_tool_generic_output_file_formats",
+            "output_file_formats",
+            postgresql_using="gin"
+        ),
+    )
 
     # Primary key: unique identifier for this artifact
     # id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
