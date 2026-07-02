@@ -54,9 +54,7 @@ class ToolGeneric(Base):
     output_file_descriptions = Column(ARRAY(String))
 
     # Input slots for file inputs with schema:
-    # {
-    #     "version": String,  # Version of the input slot schema
-    #     "slots": [
+    #  [
     #         {
     #             "id": Integer,  # Unique identifier for the input slot
     #             "name": String,  # Name of the input slot
@@ -65,14 +63,11 @@ class ToolGeneric(Base):
     #             "file_formats": [String],  # List of accepted file formats for this slot
     #         },
     #         ...
-    #     ]
-    # }
+    #  ]
     input_slots = Column(JSONB)
     
     # Output slots for file outputs with schema:
-    # {
-    #     "version": String,  # Version of the ouput slot schema
-    #     "slots": [
+    #  [
     #         {
     #             "id": Integer,  # Unique identifier for the output slot
     #             "name": String,  # Name of the output slot
@@ -81,8 +76,7 @@ class ToolGeneric(Base):
     #             "file_formats": [String],  # List of accepted file formats for this slot
     #         },
     #         ...
-    #     ]
-    # }
+    #  ]
     output_slots = Column(JSONB)
 
     # License information
